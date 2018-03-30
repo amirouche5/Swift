@@ -1,0 +1,41 @@
+
+class MyViewController {
+
+    let dateField : UITextField = {
+        let date = UITextField()
+        return date
+    }()
+
+    let picker : UIDatePicker = {
+        let pick = UIDatePicker()
+
+        return pick
+    }()
+
+    viewDidLoad(bool : animate){
+        super.viewDidload(animated:animated)
+        createDatePicker()
+    }
+
+    func createDatePicker() {
+        let toolBar : UIToolBar  = UIToolBar()
+        toolBar.sizeToFit()
+
+        let doneBtn = UIBarButtonItem(barButtonSystemItem : .done, target: nil, action : #selector(donePressed))
+        dateField.inputView = picker
+        dateField.inputAccessorView = toolBar
+        picker.datePickerMode = .date
+    }
+
+    func donePressed(){
+        let formatter : DateFormatter()
+        formatter.dateStyle = .medium
+        formattetr.timeStyle = .none
+        let dateString = formatter.string(from: picker.date)
+        dateField.text = ("\(dateString)")
+    }
+   
+}
+
+
+
