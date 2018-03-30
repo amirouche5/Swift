@@ -1,0 +1,27 @@
+class MyViewController {
+     let headerId  = "headerId"
+
+    func viewDidload(){
+        collectionView?.registerClass(Header.self, forSupplementaryViewOfKind:UICollectionElementKindSectionHeader, withReuseIdentifier : headerId)
+
+    }
+
+    override func collectionView(collectionView : UiCollectionView, viewForSupplementaryElementOfKind kind : String, atIndex idnexPath: NSIndexpath) -> UICollectionReusableView {
+
+    //cell header
+    let header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReusIdentifier: headerId, forIndexPath : idnexPath) as! Header
+        return header
+    }
+
+    func collectionView(collectionView : UiCollectionView, layout collectionViewLayout : UIcollectionViewLayout, referenceSizeForHeaderInSection section : Int) -> CGSize {
+      //size of header
+      return CGSizeMake(view.frame.width, 150)
+    }
+
+
+    class Header {
+ 
+    }
+   
+}
+
